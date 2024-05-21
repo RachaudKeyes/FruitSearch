@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  /* maximize screen space */
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background: linear-gradient(0.25turn, rgb(250, 178, 45), rgb(250, 71, 0));
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+  /* move search bar to center of screen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-container {
+  height: 5rem;
+}
+input {
+  height: 2rem;  /* more space in input bar*/
+  padding: 0.5rem;
+}
+
+.search-container input,
+.search-container .suggestions {
+  background: linear-gradient(0.25turn, rgb(250, 185, 63), rgb(241, 135, 92));
+  /* did not use background: transparent for UI friendliness */
+}
+
+.search-container input {
+  border: none;  /* remove default border*/
+}
+
+ul {
+ list-style-type: none;  /* remove bullets */
+ padding: 0;
+ margin: 0;
+ 
+}
+
+/* Highlight the suggestion below a user’s cursor */
+.has-suggestions {
+  font-weight: bold;
+  background-color: orange;
+}
+
+ul li {
+  padding: 0.5rem; /* aligns with input padding*/
+  cursor: pointer; /* for UI friendliness */
+}
+
+/* UI friendliness */
+input[type = text]:focus {
+  border: 0.13rem solid rgb(255, 102, 0);
+  border-radius: 0.2rem;
+  outline: beige solid 0.005rem;
+}
+
+/* Ensure selection is in same font */
+input#fruit {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
