@@ -7,18 +7,18 @@ const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackb
 function search(str) {
 	let results = [];
 
-	// If no input, return empty array
-	if(str.length === 0) return results;
+	// If retno input, urn empty array
+	if (str.length === 0) return results;
 
 	// account for case-sensitivity
 	let lowerCasedStr = str.toLowerCase();
 
-	results = fruit.filter(function(word) {
+	results = fruit.filter(function (word) {
 		return word.toLowerCase().includes(lowerCasedStr);
 	})
 
 	// return first 5 results
-	return results.splice(0,5);
+	return results.splice(0, 5);
 }
 
 // connect search() with event handler
@@ -32,24 +32,25 @@ function searchHandler(e) {
 
 	// connect results of searchHandler() to showSuggestions()
 	showSuggestions(results);
-	
+}
 
 function showSuggestions(results, inputVal) {
-// add results array as line items to the suggestions list (ul)
-	for(i=0; i < results.length; i++) {
+	// add results array as line items to the suggestions list (ul)
+	for (i = 0; i < results.length; i++) {
 		const newLi = document.createElement('li');
 		newLi.innerText = results[i];
+		// newLi.classList.add('has-suggestions');
 		suggestions.append(newLi);
-		}
 	}
 }
+
 
 // Populate the search box with a user’s selected suggestion
 function useSuggestion(e) {
 
 	// if the clicked item (target) is a li, change input.value for the search() function
 	// to relfect the user's click
-	if(e.target.tagName === 'LI') {
+	if (e.target.tagName === 'LI') {
 		input.value = e.target.innerText;
 
 		// reset suggestions list
@@ -59,19 +60,22 @@ function useSuggestion(e) {
 
 // hover effect using mouseover
 function highlight(e) {
-	if(e.target.tagName === 'LI') {
+	if (e.target.tagName === 'LI') {
 		e.target.classList.add("has-suggestions");
 	}
 }
 
 // disable hover effect mouseout
 function removeHighlight(e) {
-	if(e.target.tagName === 'LI') {
+	if (e.target.tagName === 'LI') {
 		e.target.classList.remove("has-suggestions");
 	}
 }
 
+// consideration: use eventListeners in HTML
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
+
+// consideration: can remove IF using :hover in CSS. Add class to LI.
 suggestions.addEventListener('mouseover', highlight);
 suggestions.addEventListener('mouseout', removeHighlight);

@@ -45,6 +45,7 @@ ul {
 }
 
 /* Highlight the suggestion below a user’s cursor */
+/* Can use :hover IF mouse events are removed, and add class to LI upon creation */
 .has-suggestions {
   font-weight: bold;
   background-color: orange;
