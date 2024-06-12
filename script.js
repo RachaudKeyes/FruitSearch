@@ -7,7 +7,7 @@ const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackb
 function search(str) {
 	let results = [];
 
-	// If retno input, urn empty array
+	// If no input, return empty array
 	if (str.length === 0) return results;
 
 	// account for case-sensitivity
@@ -25,7 +25,7 @@ function search(str) {
 function searchHandler(e) {
 
 	// clear previous suggestions
-	suggestions.innerHTML = ''
+	suggestions.innerHTML = '';
 
 	// search input value on keyup event
 	let results = search(e.target.value);
